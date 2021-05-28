@@ -5,6 +5,7 @@ body {
   background-color: rgb(4, 31, 31);
   padding: 20px 60px;
   box-sizing: border-box;
+  color: #f7f7f7;
 
   &::-webkit-scrollbar {
     width: 0.5em;
@@ -15,7 +16,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(160, 160, 160);
     border-radius: 100px;
   }
 }

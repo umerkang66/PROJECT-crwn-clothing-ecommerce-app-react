@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Shop.scss';
 import shopData from './shop.data.js';
 
-import PreviewCollection from '../../components/collectionPreview/PreviewCollection.js';
+import CollectionPreview from '../../components/collectionPreview/CollectionPreview.js';
 
 class ShopPage extends Component {
   state = { collections: shopData };
@@ -12,7 +12,7 @@ class ShopPage extends Component {
     return (
       <div className="shop-page">
         {collections.map(({ id, ...otherCollectionProps }) => {
-          return <PreviewCollection key={id} {...otherCollectionProps} />;
+          return <CollectionPreview key={id} {...otherCollectionProps} />;
         })}
       </div>
     );
