@@ -30,7 +30,7 @@ class SignIn extends Component {
             name="email"
             id="email"
             value={this.state.email}
-            label="email"
+            label="Email"
             required
             handleChange={this.handleFormChange}
           />
@@ -39,7 +39,7 @@ class SignIn extends Component {
             name="password"
             id="password"
             value={this.state.password}
-            label="password"
+            label="Password"
             required
             handleChange={this.handleFormChange}
           />
