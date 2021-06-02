@@ -23,6 +23,7 @@
       font-size: 20px;
       transition: all 0.2s ease-out;
       border-bottom: 2px solid transparent;
+      cursor: pointer;
 
       &:not(:last-child) {
         margin-right: 10px;
@@ -31,6 +32,43 @@
       &:hover {
         color: #aad5f8;
         border-bottom: 2px solid #aad5f8;
+      }
+
+      &__sign {
+        border: none;
+        color: #f7f7f7;
+        padding: 10px 20px;
+        // border-radius: 3px;
+        margin-left: 10px;
+
+        &:hover {
+          color: #f7f7f7;
+          border: none;
+        }
+
+        &--in {
+          background-color: #4285f4;
+
+          &:hover {
+            background-color: #3773d4;
+          }
+
+          &:active {
+            background-color: #5a97f8;
+          }
+        }
+
+        &--out {
+          background-color: #ce466d;
+
+          &:hover {
+            background-color: #bb3058;
+          }
+
+          &:active {
+            background-color: #e4859f;
+          }
+        }
       }
     }
   }

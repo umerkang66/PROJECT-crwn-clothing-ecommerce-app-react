@@ -5,6 +5,7 @@
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;
+  margin-right: 10px;
   font-size: 15px;
   background-color: #f7f7f7;
   color: #041f1f;
@@ -21,5 +22,18 @@
 
   &:active {
     background-color: rgb(255, 255, 255);
+  }
+}
+
+.color-blue {
+  background-color: #4285f4;
+  color: #f7f7f7;
+
+  &:hover {
+    background-color: #3a75d4;
+  }
+
+  &:focus {
+    background-color: #629cfa;
   }
 }
