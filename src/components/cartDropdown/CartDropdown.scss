@@ -1,0 +1,44 @@
+.cart-dropdown {
+  position: absolute;
+  width: 240px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #f7f7f7;
+  background-color: #041f1f;
+  top: 90px;
+  right: 40px;
+  z-index: 5;
+  transition: all 0.1s ease-out;
+
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  .cart-items {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px #041f1f;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(160, 160, 160);
+      border-radius: 100px;
+    }
+  }
+
+  button {
+    margin-top: auto;
+  }
+}
