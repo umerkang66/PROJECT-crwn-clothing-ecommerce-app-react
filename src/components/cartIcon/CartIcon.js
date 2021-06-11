@@ -5,13 +5,19 @@ import { toggleCardHidden } from '../../redux/actions/cartActions.js';
 
 import { ReactComponent as ShoppingCartIcon } from '../../assets/shopping-bag.svg';
 
-const CartIcon = ({ toggleCardHidden }) => {
+const CartIcon = ({ toggleCardHidden, cartItems }) => {
   return (
     <div onClick={toggleCardHidden} className="cart-icon">
       <ShoppingCartIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{cartItems.length}</span>
     </div>
   );
 };
 
-export default connect(null, { toggleCardHidden })(CartIcon);
+const mapStateToProps = state => {
+  return {
+    cartItems: state.cart.cartItems,
+  };
+};
+
+export default connect(mapStateToProps, { toggleCardHidden })(CartIcon);
