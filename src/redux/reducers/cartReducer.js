@@ -1,4 +1,15 @@
 import { TOGGLE_CARD_HIDDEN, ADD_ITEM } from '../actionTypes.js';
+import { createSelector } from 'reselect';
+
+const selectCart = state => state.cart;
+export const selectCartItems = createSelector(
+  [selectCart],
+  cart => cart.cartItems
+);
+export const selectCartItemsCount = createSelector(
+  [selectCartItems],
+  cartItems => cartItems.reduce((acc, cartItem) => acc + cartItem.quantity, 0)
+);
 
 const addItemsToCart = (cartItems, newItem) => {
   const existingCart = cartItems.find(cartItem => cartItem.id === newItem.id);
