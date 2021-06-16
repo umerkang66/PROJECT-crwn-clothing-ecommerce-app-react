@@ -1,7 +1,12 @@
 import { TOGGLE_CARD_HIDDEN, ADD_ITEM } from '../actionTypes.js';
 import { createSelector } from 'reselect';
 
+// MEMOIZATION USING RESELECT
 const selectCart = state => state.cart;
+export const selectCartHidden = createSelector(
+  [selectCart],
+  cart => cart.hidden
+);
 export const selectCartItems = createSelector(
   [selectCart],
   cart => cart.cartItems
@@ -9,6 +14,12 @@ export const selectCartItems = createSelector(
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   cartItems => cartItems.reduce((acc, cartItem) => acc + cartItem.quantity, 0)
+);
+export const selectCartTotal = createSelector([selectCartItems], cartItems =>
+  cartItems.reduce(
+    (acc, cartItem) => acc + cartItem.quantity * cartItem.price,
+    0
+  )
 );
 
 const addItemsToCart = (cartItems, newItem) => {
