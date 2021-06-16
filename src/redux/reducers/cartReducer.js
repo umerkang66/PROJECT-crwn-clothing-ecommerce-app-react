@@ -1,4 +1,9 @@
-import { TOGGLE_CARD_HIDDEN, ADD_ITEM } from '../actionTypes.js';
+import {
+  TOGGLE_CARD_HIDDEN,
+  ADD_ITEM,
+  CLEAR_ITEM_FROM_CART,
+  REMOVE_ITEM,
+} from '../actionTypes.js';
 import { createSelector } from 'reselect';
 
 // MEMOIZATION USING RESELECT
@@ -36,6 +41,21 @@ const addItemsToCart = (cartItems, newItem) => {
   return [...cartItems, { ...newItem, quantity: 1 }];
 };
 
+const removeCartItemsFromCart = (cartItems, itemToDelete) => {
+  const existingCart = cartItems.find(
+    cartItem => cartItem.id === itemToDelete.id
+  );
+
+  if (existingCart.quantity === 1)
+    return cartItems.filter(cartItem => cartItem.id !== itemToDelete.id);
+
+  return cartItems.map(cartItem => {
+    return cartItem.id === itemToDelete.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem;
+  });
+};
+
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
@@ -49,6 +69,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItemsToCart(state.cartItems, action.payload),
+      };
+    case REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: removeCartItemsFromCart(state.cartItems, action.payload),
+      };
+    case CLEAR_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          cartItem => cartItem.id !== action.payload
+        ),
       };
     default:
       return state;

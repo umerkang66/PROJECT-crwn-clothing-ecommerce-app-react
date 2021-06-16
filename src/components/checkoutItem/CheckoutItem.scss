@@ -23,11 +23,28 @@
   }
 
   .quantity {
-    padding-left: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .arrow {
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+    }
   }
 
   .remove-button {
-    padding-left: 12px;
+    padding: 8px 14px;
+    border-radius: 100px;
     cursor: pointer;
+    transition: background-color 0.1s ease-out;
+
+    &:active {
+      background-color: #083f3f;
+    }
   }
 }
