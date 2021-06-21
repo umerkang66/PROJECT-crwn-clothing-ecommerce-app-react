@@ -6,7 +6,7 @@ import {
 } from '../actionTypes.js';
 import { createSelector } from 'reselect';
 
-// MEMOIZATION USING RESELECT
+// MEMOIZATION USING RESELECT LIBRARY
 const selectCart = state => state.cart;
 export const selectCartHidden = createSelector(
   [selectCart],
