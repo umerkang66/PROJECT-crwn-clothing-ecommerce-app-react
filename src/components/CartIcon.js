@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/componentSass/CartIcon.scss';
+import '../sass/components/CartIcon.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 

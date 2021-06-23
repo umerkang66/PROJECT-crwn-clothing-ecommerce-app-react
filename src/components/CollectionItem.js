@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/componentSass/CollectionItem.scss';
+import '../sass/components/CollectionItem.scss';
 import { connect } from 'react-redux';
 
 import { addItem } from '../redux/actions/cartActions.js';

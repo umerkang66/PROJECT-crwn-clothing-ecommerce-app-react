@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../sass/componentSass/SignIn.scss';
+import '../sass/components/SignIn.scss';
 import googleIcon from '../assets/google-icon.png';
 
 import { auth, signInWithGoogle } from '../firebase/firebase.js';

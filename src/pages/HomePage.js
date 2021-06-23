@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/pagesSass/HomePage.scss';
+import '../sass/pages/HomePage.scss';
 
 import Directory from '../components/Directory.js';
 

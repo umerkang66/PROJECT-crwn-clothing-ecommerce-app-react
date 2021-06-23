@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/componentSass/Directory.scss';
+import '../sass/components/Directory.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 

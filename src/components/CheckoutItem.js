@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/componentSass/CheckoutItem.scss';
+import '../sass/components/CheckoutItem.scss';
 import { connect } from 'react-redux';
 
 import {

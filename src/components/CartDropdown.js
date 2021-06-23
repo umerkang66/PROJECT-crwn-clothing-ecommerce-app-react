@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/componentSass/CartDropdown.scss';
+import '../sass/components/CartDropdown.scss';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';

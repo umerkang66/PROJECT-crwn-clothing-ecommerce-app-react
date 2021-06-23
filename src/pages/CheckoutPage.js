@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/pagesSass/CheckoutPage.scss';
+import '../sass/pages/CheckoutPage.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 

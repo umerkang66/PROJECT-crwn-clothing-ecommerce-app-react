@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/pagesSass/SignInSignUpPage.scss';
+import '../sass/pages/SignInSignUpPage.scss';
 
 import SignIn from '../components/SignIn.js';
 import SignUp from '../components/SignUp.js';
