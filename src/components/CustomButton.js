@@ -1,5 +1,5 @@
 import React from 'react';
-import './CustomButton.scss';
+import '../sass/componentSass/CustomButton.scss';
 
 const CustomButton = ({ children, colorBlue, inverted, ...otherProps }) => {
   return (

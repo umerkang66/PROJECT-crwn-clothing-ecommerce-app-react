@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './sass/App.scss';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import Header from './components/header/Header.js';
-import HomePage from './pages/homepage/HomePage.js';
-import ShopPage from './pages/shopPage/ShopPage.js';
-import SignInSignUpPage from './pages/signInSignUpPage/SignInSignUpPage.js';
-import CheckoutPage from './pages/checkoutPage/CheckoutPage.js';
+import Header from './components/Header.js';
+import HomePage from './pages/HomePage.js';
+import ShopPage from './pages/ShopPage.js';
+import SignInSignUpPage from './pages/SignInSignUpPage.js';
+import CheckoutPage from './pages/CheckoutPage.js';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.js';
 

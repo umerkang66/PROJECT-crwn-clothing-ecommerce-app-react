@@ -1,8 +1,8 @@
 import React from 'react';
-import './SignInSignUpPage.scss';
+import '../sass/pagesSass/SignInSignUpPage.scss';
 
-import SignIn from '../../components/signIn/SignIn.js';
-import SignUp from '../../components/signUp/SignUp.js';
+import SignIn from '../components/SignIn.js';
+import SignUp from '../components/SignUp.js';
 
 const SignInSignUpPage = props => {
   return (

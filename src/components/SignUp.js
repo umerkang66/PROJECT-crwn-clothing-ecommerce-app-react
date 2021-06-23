@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './SignUp.scss';
-import FormInput from '../formInput/FormInput.js';
-import CustomButton from '../customButton/CustomButton.js';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.js';
+import '../sass/componentSass/SignUp.scss';
+
+import { auth, createUserProfileDocument } from '../firebase/firebase.js';
+import FormInput from './FormInput.js';
+import CustomButton from './CustomButton.js';
 
 class SignUp extends Component {
   state = { displayName: '', email: '', password: '', confirmPassword: '' };

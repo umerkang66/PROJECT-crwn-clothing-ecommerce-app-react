@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './ShopPage.scss';
+import '../sass/pagesSass/ShopPage.scss';
 import shopData from './shop.data.js';
 
-import CollectionPreview from '../../components/collectionPreview/CollectionPreview.js';
+import CollectionPreview from '../components/CollectionPreview.js';
 
 class ShopPage extends Component {
   state = { collections: shopData };

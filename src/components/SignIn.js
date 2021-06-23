@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './SignIn.scss';
-import FormInput from '../formInput/FormInput.js';
-import CustomButton from '../customButton/CustomButton.js';
-import googleIcon from '../../assets/google-icon.png';
+import '../sass/componentSass/SignIn.scss';
+import googleIcon from '../assets/google-icon.png';
 
-import { auth, signInWithGoogle } from '../../firebase/firebase.js';
+import { auth, signInWithGoogle } from '../firebase/firebase.js';
+import FormInput from './FormInput.js';
+import CustomButton from './CustomButton.js';
 
 class SignIn extends Component {
   state = { email: '', password: '' };

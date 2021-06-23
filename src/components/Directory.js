@@ -1,10 +1,10 @@
 import React from 'react';
-import './Directory.scss';
+import '../sass/componentSass/Directory.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import MenuItem from '../menuItem/MenuItem.js';
-import { selectDirectorySections } from '../../redux/reducers/directoryReducer.js';
+import MenuItem from './MenuItem.js';
+import { selectDirectorySections } from '../redux/reducers/directoryReducer.js';
 
 const Directory = ({ sections }) => {
   return (

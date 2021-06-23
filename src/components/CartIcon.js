@@ -1,11 +1,11 @@
 import React from 'react';
-import './CartIcon.scss';
+import '../sass/componentSass/CartIcon.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { toggleCardHidden } from '../../redux/actions/cartActions.js';
-import { ReactComponent as ShoppingCartIcon } from '../../assets/shopping-bag.svg';
-import { selectCartItemsCount } from '../../redux/reducers/cartReducer.js';
+import { toggleCardHidden } from '../redux/actions/cartActions.js';
+import { ReactComponent as ShoppingCartIcon } from '../assets/shopping-bag.svg';
+import { selectCartItemsCount } from '../redux/reducers/cartReducer.js';
 
 const CartIcon = ({ toggleCardHidden, totalQuantity }) => {
   return (
