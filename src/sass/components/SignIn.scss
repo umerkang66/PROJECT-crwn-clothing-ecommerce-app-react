@@ -1,6 +1,10 @@
 .sign-in {
   width: 45%;
 
+  h2 {
+    margin-bottom: 5px;
+  }
+
   .buttons {
     display: flex;
     justify-content: flex-start;

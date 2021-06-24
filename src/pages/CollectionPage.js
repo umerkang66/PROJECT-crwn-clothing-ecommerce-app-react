@@ -1,0 +1,28 @@
+import React from 'react';
+import '../sass/pages/CollectionPage.scss';
+import { connect } from 'react-redux';
+
+import CollectionItem from '../components/CollectionItem.js';
+import { shopCollectionSelector } from '../redux/reducers/shopReducer.js';
+
+const CollectionPage = ({ collection }) => {
+  return (
+    <div className="collection-page">
+      <h2>{collection.title.toUpperCase()}</h2>
+      <div className="collection-page__items">
+        {collection.items.map(item => (
+          <CollectionItem key={item.id} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state, ownProps) => {
+  const { collectionId } = ownProps.match.params;
+  return {
+    collection: shopCollectionSelector(collectionId)(state),
+  };
+};
+
+export default connect(mapStateToProps)(CollectionPage);
