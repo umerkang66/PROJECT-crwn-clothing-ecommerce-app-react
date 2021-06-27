@@ -6,11 +6,13 @@ import CollectionItem from '../components/CollectionItem.js';
 import { shopCollectionSelector } from '../redux/reducers/shopReducer.js';
 
 const CollectionPage = ({ collection }) => {
+  const { title, items } = collection;
+
   return (
     <div className="collection-page">
-      <h2>{collection.title.toUpperCase()}</h2>
+      <h2>{title.toUpperCase()}</h2>
       <div className="collection-page__items">
-        {collection.items.map(item => (
+        {items.map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </div>
