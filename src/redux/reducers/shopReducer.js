@@ -1,26 +1,40 @@
 import { createSelector } from 'reselect';
-import { INITIAL_STATE } from '../dataReducers/shopDataInitialState.js';
+import { UPDATE_SHOP_COLLECTIONS } from '../actionTypes.js';
 
 // MEMOIZATION OF SHOP REDUCER DATA USING RESELECT LIBRARY
 const shopSelector = state => state.shop;
-export const shopItemsSelector = createSelector(
+// Multiple Collections
+export const shopCollectionsSelector = createSelector(
   [shopSelector],
-  shop => shop.shopData
+  shop => shop.collections
 );
-export const shopItemsArrSelector = createSelector([shopItemsSelector], items =>
-  Object.values(items)
+export const shopCollectionsArrSelector = createSelector(
+  [shopCollectionsSelector],
+  collections => (collections ? Object.values(collections) : [])
 );
+// Single Collection
 export const shopCollectionSelector = collectionUrlParam => {
-  return createSelector(
-    [shopItemsSelector],
-    items => items[collectionUrlParam]
+  return createSelector([shopCollectionsSelector], collections =>
+    collections ? collections[collectionUrlParam] : null
   );
+};
+
+////////////////////////////////////
+////////////////////////////////////
+
+const INITIAL_STATE = {
+  collections: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case UPDATE_SHOP_COLLECTIONS:
+      return {
+        ...state,
+        collections: action.payload,
+      };
     default:
-      return { ...state };
+      return state;
   }
 };
 

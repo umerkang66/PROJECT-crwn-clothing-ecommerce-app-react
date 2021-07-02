@@ -3,7 +3,7 @@ import {
   ADD_ITEM,
   CLEAR_ITEM_FROM_CART,
   REMOVE_ITEM,
-} from '../actionTypes';
+} from '../actionTypes.js';
 
 export const toggleCardHidden = () => {
   return {
