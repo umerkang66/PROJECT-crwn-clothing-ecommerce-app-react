@@ -19,11 +19,22 @@ class ShopPage extends Component {
   state = { isLoading: true };
   unsubscribeFromSnapshot = null;
 
+  // componentDidMount() {
+  //   const { updateShopCollections } = this.props;
+  //   const collectionRef = firestore.collection('collections');
+
+  //   this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+  //     const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+  //     updateShopCollections(collectionsMap);
+  //     this.setState({ isLoading: false });
+  //   });
+  // }
+
   componentDidMount() {
     const { updateShopCollections } = this.props;
     const collectionRef = firestore.collection('collections');
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+    collectionRef.get().then(snapshot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateShopCollections(collectionsMap);
       this.setState({ isLoading: false });
@@ -56,3 +67,7 @@ class ShopPage extends Component {
 }
 
 export default connect(null, { updateShopCollections })(ShopPage);
+
+// https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/
+
+// crwn-clothing-db-8d20b
