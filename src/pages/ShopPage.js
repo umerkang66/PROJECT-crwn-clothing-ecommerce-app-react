@@ -3,7 +3,7 @@ import '../sass/pages/ShopPage.scss';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Spinner from '../components/Spinner.js';
+import Spinner from '../components/WithSpinner.js';
 import CollectionsOverview from '../components/CollectionsOverview.js';
 import CollectionPage from './CollectionPage.js';
 import {

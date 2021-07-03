@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/components/Spinner.scss';
+import '../sass/components/WithSpinner.scss';
 
 // HIGHER ORDER COMPONENT
 const Spinner = function (WrappedComponent) {
