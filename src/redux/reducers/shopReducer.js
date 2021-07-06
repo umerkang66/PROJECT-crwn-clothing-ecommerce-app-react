@@ -4,9 +4,6 @@ import {
   FETCH_SHOP_COLLECTIONS_SUCCESS,
 } from '../actionTypes.js';
 
-////////////////////////////////////
-////////////////////////////////////
-
 const INITIAL_STATE = {
   collections: null,
   isFetching: false,
@@ -16,7 +13,6 @@ const INITIAL_STATE = {
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_SHOP_COLLECTIONS_START:
-      console.log(state);
       return {
         ...state,
         isFetching: true,
@@ -24,13 +20,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case FETCH_SHOP_COLLECTIONS_SUCCESS:
       return {
         ...state,
-        collections: action.payload,
+        collections: action.payload.collectionsMap,
         isFetching: false,
       };
     case FETCH_SHOP_COLLECTIONS_FAILURE:
       return {
         ...state,
-        errMessage: action.payload,
+        errMessage: action.payload.errMessage,
         isFetching: false,
       };
     default:

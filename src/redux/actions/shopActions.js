@@ -3,6 +3,7 @@ import {
   FETCH_SHOP_COLLECTIONS_START,
   FETCH_SHOP_COLLECTIONS_SUCCESS,
 } from '../actionTypes.js';
+
 import {
   firestore,
   convertCollectionsSnapshotToMap,
@@ -17,7 +18,9 @@ export const fetchShopCollectionsStart = () => {
 export const fetchShopCollectionsSuccess = collectionsMap => {
   return {
     type: FETCH_SHOP_COLLECTIONS_SUCCESS,
-    payload: collectionsMap,
+    payload: {
+      collectionsMap,
+    },
   };
 };
 
@@ -26,7 +29,9 @@ export const fetchShopCollectionsFailure = errMessage => {
 
   return {
     type: FETCH_SHOP_COLLECTIONS_FAILURE,
-    payload: errMessage,
+    payload: {
+      errMessage,
+    },
   };
 };
 

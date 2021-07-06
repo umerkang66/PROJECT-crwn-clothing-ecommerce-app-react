@@ -14,20 +14,26 @@ export const toggleCardHidden = () => {
 export const addItem = item => {
   return {
     type: ADD_ITEM,
-    payload: item,
+    payload: {
+      item,
+    },
   };
 };
 
 export const clearItemFromCart = id => {
   return {
     type: CLEAR_ITEM_FROM_CART,
-    payload: id,
+    payload: {
+      id,
+    },
   };
 };
 
 export const removeItem = item => {
   return {
     type: REMOVE_ITEM,
-    payload: item,
+    payload: {
+      item,
+    },
   };
 };
