@@ -1,37 +1,37 @@
-import { createSelector } from 'reselect';
-import { UPDATE_SHOP_COLLECTIONS } from '../actionTypes.js';
-
-// MEMOIZATION OF SHOP REDUCER DATA USING RESELECT LIBRARY
-const shopSelector = state => state.shop;
-// Multiple Collections
-export const shopCollectionsSelector = createSelector(
-  [shopSelector],
-  shop => shop.collections
-);
-export const shopCollectionsArrSelector = createSelector(
-  [shopCollectionsSelector],
-  collections => (collections ? Object.values(collections) : [])
-);
-// Single Collection
-export const shopCollectionSelector = collectionUrlParam => {
-  return createSelector([shopCollectionsSelector], collections =>
-    collections ? collections[collectionUrlParam] : null
-  );
-};
+import {
+  FETCH_SHOP_COLLECTIONS_FAILURE,
+  FETCH_SHOP_COLLECTIONS_START,
+  FETCH_SHOP_COLLECTIONS_SUCCESS,
+} from '../actionTypes.js';
 
 ////////////////////////////////////
 ////////////////////////////////////
 
 const INITIAL_STATE = {
   collections: null,
+  isFetching: false,
+  errMessage: '',
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UPDATE_SHOP_COLLECTIONS:
+    case FETCH_SHOP_COLLECTIONS_START:
+      console.log(state);
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case FETCH_SHOP_COLLECTIONS_SUCCESS:
       return {
         ...state,
         collections: action.payload,
+        isFetching: false,
+      };
+    case FETCH_SHOP_COLLECTIONS_FAILURE:
+      return {
+        ...state,
+        errMessage: action.payload,
+        isFetching: false,
       };
     default:
       return state;

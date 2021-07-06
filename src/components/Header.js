@@ -8,8 +8,8 @@ import { createStructuredSelector } from 'reselect';
 import { auth } from '../firebase/firebase.js';
 import CartIcon from './CartIcon.js';
 import CartDropdown from './CartDropdown.js';
-import { selectCartHidden } from '../redux/reducers/cartReducer.js';
-import { selectCurrentUser } from '../redux/reducers/userReducer.js';
+import { selectCartHidden } from '../redux/selectors/cartSelectors.js';
+import { selectCurrentUser } from '../redux/selectors/userSelectors.js';
 
 const Header = ({ currentUser, hidden }) => {
   return (

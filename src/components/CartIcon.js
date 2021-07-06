@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { toggleCardHidden } from '../redux/actions/cartActions.js';
 import { ReactComponent as ShoppingCartIcon } from '../assets/shopping-bag.svg';
-import { selectCartItemsCount } from '../redux/reducers/cartReducer.js';
+import { selectCartItemsCount } from '../redux/selectors/cartSelectors.js';
 
 const CartIcon = ({ toggleCardHidden, totalQuantity }) => {
   return (

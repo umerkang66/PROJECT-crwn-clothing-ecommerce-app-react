@@ -3,9 +3,11 @@ import '../sass/pages/CollectionPage.scss';
 import { connect } from 'react-redux';
 
 import CollectionItem from '../components/CollectionItem.js';
-import { shopCollectionSelector } from '../redux/reducers/shopReducer.js';
+import { shopCollectionSelector } from '../redux/selectors/shopSelectors.js';
 
 const CollectionPage = ({ collection }) => {
+  if (!collection) return null;
+
   const { title, items } = collection;
 
   return (

@@ -2,48 +2,25 @@ import React, { Component } from 'react';
 import '../sass/pages/ShopPage.scss';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import Spinner from '../components/WithSpinner.js';
 import CollectionsOverview from '../components/CollectionsOverview.js';
 import CollectionPage from './CollectionPage.js';
-import {
-  firestore,
-  convertCollectionsSnapshotToMap,
-} from '../firebase/firebase.js';
-import { updateShopCollections } from '../redux/actions/shopActions.js';
+import { fetchShopCollectionsStartAsync } from '../redux/actions/shopActions.js';
+import { shopIsFetchingSelector } from '../redux/selectors/shopSelectors.js';
 
 const CollectionsOverviewWithSpinner = Spinner(CollectionsOverview);
 const CollectionPageWithSpinner = Spinner(CollectionPage);
 
 class ShopPage extends Component {
-  state = { isLoading: true };
-  unsubscribeFromSnapshot = null;
-
-  // componentDidMount() {
-  //   const { updateShopCollections } = this.props;
-  //   const collectionRef = firestore.collection('collections');
-
-  //   this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-  //     const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-  //     updateShopCollections(collectionsMap);
-  //     this.setState({ isLoading: false });
-  //   });
-  // }
-
   componentDidMount() {
-    const { updateShopCollections } = this.props;
-    const collectionRef = firestore.collection('collections');
-
-    collectionRef.get().then(snapshot => {
-      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-      updateShopCollections(collectionsMap);
-      this.setState({ isLoading: false });
-    });
+    const { fetchShopCollectionsStartAsync } = this.props;
+    fetchShopCollectionsStartAsync();
   }
 
   render() {
-    const { match } = this.props;
-    const { isLoading } = this.state;
+    const { match, isLoading } = this.props;
 
     return (
       <div className="shop-page">
@@ -66,8 +43,10 @@ class ShopPage extends Component {
   }
 }
 
-export default connect(null, { updateShopCollections })(ShopPage);
+const mapStateToProps = createStructuredSelector({
+  isLoading: shopIsFetchingSelector,
+});
 
-// https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/
-
-// crwn-clothing-db-8d20b
+export default connect(mapStateToProps, { fetchShopCollectionsStartAsync })(
+  ShopPage
+);

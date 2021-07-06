@@ -13,7 +13,7 @@ import CheckoutPage from './pages/CheckoutPage.js';
 import { auth, createUserProfileDocument } from './firebase/firebase.js';
 
 import { setCurrentUser } from './redux/actions/userActions.js';
-import { selectCurrentUser } from './redux/reducers/userReducer.js';
+import { selectCurrentUser } from './redux/selectors/userSelectors.js';
 
 class App extends Component {
   unsubscribeFromAuth = null;

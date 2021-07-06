@@ -1,12 +1,4 @@
-import { createSelector } from 'reselect';
 import { SET_CURRENT_USER } from '../actionTypes.js';
-
-// MEMOIZATION USING RESELECT
-const selectUser = state => state.user;
-export const selectCurrentUser = createSelector(
-  [selectUser],
-  user => user.currentUser
-);
 
 const INITIAL_STATE = {
   currentUser: null,
