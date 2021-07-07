@@ -21,6 +21,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         collections: action.payload.collectionsMap,
+        errMessage: '',
         isFetching: false,
       };
     case FETCH_SHOP_COLLECTIONS_FAILURE:
@@ -30,7 +31,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
       };
     default:
-      return { ...state };
+      return state;
   }
 };
 
