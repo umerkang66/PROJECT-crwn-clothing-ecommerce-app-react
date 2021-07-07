@@ -2,7 +2,7 @@ import React from 'react';
 import '../sass/components/WithSpinner.scss';
 
 // HIGHER ORDER COMPONENT
-const Spinner = function (WrappedComponent) {
+const WithSpinner = function (WrappedComponent) {
   return ({ isLoading, ...otherProps }) => {
     return isLoading ? (
       <div className="spinner-overlay">
@@ -14,4 +14,4 @@ const Spinner = function (WrappedComponent) {
   };
 };
 
-export default Spinner;
+export default WithSpinner;

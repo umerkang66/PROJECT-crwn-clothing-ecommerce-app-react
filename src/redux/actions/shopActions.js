@@ -25,8 +25,6 @@ export const fetchShopCollectionsSuccess = collectionsMap => {
 };
 
 export const fetchShopCollectionsFailure = errMessage => {
-  console.log(errMessage);
-
   return {
     type: FETCH_SHOP_COLLECTIONS_FAILURE,
     payload: {
@@ -41,7 +39,7 @@ export const fetchShopCollectionsStartAsync = () => async dispatch => {
   try {
     const collectionRef = firestore.collection('collections');
     const snapshot = await collectionRef.get();
-    if (!snapshot.size) throw new Error('Shop items did not find');
+    if (!snapshot.docs.length) throw new Error('⚠ Items did not found');
 
     const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
     dispatch(fetchShopCollectionsSuccess(collectionsMap));
