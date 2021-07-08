@@ -15,13 +15,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case FETCH_SHOP_COLLECTIONS_START:
       return {
         ...state,
+        errMessage: '',
         isFetching: true,
       };
     case FETCH_SHOP_COLLECTIONS_SUCCESS:
       return {
         ...state,
         collections: action.payload.collectionsMap,
-        errMessage: '',
         isFetching: false,
       };
     case FETCH_SHOP_COLLECTIONS_FAILURE:
