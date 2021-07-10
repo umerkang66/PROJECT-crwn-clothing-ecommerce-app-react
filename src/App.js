@@ -4,8 +4,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-console.log('umer gulzar started this app');
-
 import Header from './components/Header.js';
 import HomePage from './pages/HomePage.js';
 import ShopPage from './pages/ShopPage.js';
