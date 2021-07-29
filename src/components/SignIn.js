@@ -51,7 +51,6 @@ class SignIn extends Component {
             required
             handleChange={this.handleFormChange}
           />
-
           <div className="buttons">
             <CustomButton type="submit">Sign in</CustomButton>
             <CustomButton onClick={signInWithGoogle} colorBlue>
