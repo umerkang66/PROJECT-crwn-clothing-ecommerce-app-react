@@ -1,16 +1,10 @@
 import React from 'react';
-import '../sass/components/WithSpinner.scss';
+import Spinner from './Spinner.js';
 
 // HIGHER ORDER COMPONENT
 const WithSpinner = function (WrappedComponent) {
   return ({ isLoading, ...otherProps }) => {
-    return isLoading ? (
-      <div className="spinner-overlay">
-        <div className="spinner-container" />
-      </div>
-    ) : (
-      <WrappedComponent {...otherProps} />
-    );
+    return isLoading ? <Spinner /> : <WrappedComponent {...otherProps} />;
   };
 };
 
