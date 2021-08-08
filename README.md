@@ -4,4 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Hosted At
 
-This project is hosted at [https://crwn-clothing-umer.netlify.app](https://crwn-clothing-umer.netlify.app)
+This project is hosted at [https://crwn-clothing-umer.herokuapp.com/](https://crwn-clothing-umer.herokuapp.com/)
